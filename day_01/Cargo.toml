@@ -1,0 +1,9 @@
+[package]
+name = "day_01"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+regex = "1.10.2"
+clap = { version = "4.0", features = ["derive", "env"] }
+combine = "*"
