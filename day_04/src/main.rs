@@ -64,7 +64,7 @@ fn pt1(input: &InputStruct) -> Result<(), Box<dyn std::error::Error>> {
                 );
             }
             //horizontal backward
-            if x > 3 {
+            if x >= 3 {
                 xmasses += isxmas(
                     input.char_field[y][x],
                     input.char_field[y][x - 1],
@@ -82,7 +82,7 @@ fn pt1(input: &InputStruct) -> Result<(), Box<dyn std::error::Error>> {
                 );
             }
             //vertical upward
-            if y > 3 {
+            if y >= 3 {
                 xmasses += isxmas(
                     input.char_field[y][x],
                     input.char_field[y - 1][x],
@@ -102,7 +102,7 @@ fn pt1(input: &InputStruct) -> Result<(), Box<dyn std::error::Error>> {
             }
 
             //diagonal right up 
-            if x + 3 < x_len && y > 3 {
+            if x + 3 < x_len && y >= 3 {
                 xmasses += isxmas(
                     input.char_field[y][x],
                     input.char_field[y - 1][x + 1],
@@ -112,7 +112,7 @@ fn pt1(input: &InputStruct) -> Result<(), Box<dyn std::error::Error>> {
             }
 
             //diagonal left down
-            if x > 3 && y + 3 < y_len {
+            if x >= 3 && y + 3 < y_len {
                 xmasses += isxmas(
                     input.char_field[y][x],
                     input.char_field[y + 1][x - 1],
@@ -122,7 +122,7 @@ fn pt1(input: &InputStruct) -> Result<(), Box<dyn std::error::Error>> {
             }
 
             //diagonal left up
-            if x + 3 < x_len && y > 3 {
+            if x >= 3 && y >= 3 {
                 xmasses += isxmas(
                     input.char_field[y][x],
                     input.char_field[y - 1][x - 1],
@@ -133,7 +133,6 @@ fn pt1(input: &InputStruct) -> Result<(), Box<dyn std::error::Error>> {
 
         }
     }
-    println!("{:#?}", xmasses);
     Ok(())
 }
 
@@ -146,7 +145,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let example_input_str = read_to_string(args.example_path)?;
     let real_input_str = read_to_string(args.input_path)?;
 
-    let input = parse_input(&example_input_str);
+    let input = parse_input(&real_input_str);
 
     let _ = pt1(&input);
     let _ = pt2(&input);
